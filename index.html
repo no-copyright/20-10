@@ -25,6 +25,7 @@
             background: linear-gradient(-45deg, #ee7752, #e73c7e, #9164ff, #23d5ab);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
+            background-attachment: fixed;
         }
 
         @keyframes gradient {
@@ -1027,9 +1028,9 @@
             </div>
         </div>
 
-        <div id="final-message" class="hidden opacity-0 transition-all duration-1000 ease-in-out bg-white/95 backdrop-blur-xl p-8
+        <div id="final-message" class="hidden opacity-0 transition-all duration-1000 ease-in-out bg-white/95 backdrop-blur-xl p-4 md:p-8
                    rounded-2xl shadow-2xl max-w-xl md:max-w-2xl mx-auto relative z-30
-+                  paper-effect">
+                   paper-effect">
 
             <div class="flower top-left">
                 <svg width="100" height="100" viewBox="0 0 100 100">
@@ -1076,12 +1077,12 @@
                 </div>
 
                 <div class="mt-8 message-text flex justify-center">
-                    <button id="surprise-button" class="button-3d py-3 px-8 text-rose-600 font-bold rounded-lg
-                                   animate__animated animate__pulse animate__infinite animate__slow">
-                        💖 Nhấn để nhận điều bất ngờ 💖
+                    <button id="surprise-button" class="button-3d py-3 px-4 md:px-8 text-rose-600 font-bold rounded-lg
+                                   animate__animated animate__pulse animate__infinite animate__slow left-[42%]"> 💖
+                        Nhấn để nhận
+                        điều bất ngờ 💖
                     </button>
                 </div>
-
                 <div class="floating-hearts-container" id="floating-hearts"></div>
             </div>
         </div>
@@ -1363,6 +1364,14 @@
                     // Ẩn hẳn phong bì đi
                     envelope.style.display = 'none';
                     promptText.style.display = 'none';
+
+                    // *** BẮT ĐẦU SỬA LỖI MẤT NÚT ***
+                    // Cho phép cuộn trang để xem hết nội dung thư
+                    document.body.style.overflow = 'auto';
+                    // Bỏ căn giữa, đưa thư lên gần đầu trang
+                    document.body.classList.remove('items-center');
+                    document.body.classList.add('pt-12', 'pb-12'); // Thêm padding trên/dưới
+                    // *** KẾT THÚC SỬA LỖI ***
 
                     // Hiển thị nội dung thư
                     finalMessage.classList.remove('hidden');
